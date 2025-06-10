@@ -1,0 +1,324 @@
+/* =====================
+   Reset & Base Styles
+===================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  caret-color: transparent;
+  font-family: 'Sansita', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* =====================
+   Layout
+===================== */
+.layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: var(--surface-surface-primary, #F8F0EC);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  padding: 100px 10px;
+  align-items: flex-end;
+  border-right: 1px solid var(--border-border-primary, #1D2935);
+  transition: width 0.3s ease;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+}
+
+/* =====================
+   Header
+===================== */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 26px;
+  gap: 16px;
+}
+
+/* =====================
+   Buttons
+===================== */
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 24px;
+  padding: 8px;
+  background-color: transparent;
+  color: #1D2935;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+@media (hover: hover) {
+  .icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.09);
+    border-radius: 24px;
+  }
+}
+
+.avatar-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: url(../assets/profile.svg) lightgray 50% / cover no-repeat;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+/* =====================
+   Menus & Dropdowns
+===================== */
+
+/* Wrapper around button + dropdown for relative positioning */
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block; /* Shrinks to fit contents */
+  vertical-align: top; /* Optional: aligns inline-blocks at the top */
+}
+
+/* Base dropdown menu styling */
+.dropdown-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--border-border-primary, #1D2935);
+  background: var(--color-base-88-o-40, rgba(241, 226, 218, 0.16));
+  backdrop-filter: blur(2px);
+  white-space: nowrap; /* Prevent items from wrapping, helps with dynamic width */
+  width: max-content;  /* Let dropdown grow to fit content */
+  z-index: 10;         /* Ensures dropdown stays above other content */
+}
+
+/* Dropdown positioned below the button */
+.history-menu {
+  width: 180px;
+  top: 100%;
+  right: 0;           /* Align to button's right */
+  margin-top: 8px;
+}
+
+/* Dropdown positioned above the button */
+.import-menu,
+.cta-menu {
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 8px;
+}
+
+.import-menu {
+  left: 0;         /* Align to left edge of button */
+}
+
+/* Individual dropdown items */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  flex-wrap: wrap;
+  align-self: stretch;
+}
+
+
+.menu-item:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+@media (hover: hover) {
+  .menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.09);
+    border-radius: 0;
+  }
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  color: #1D2935;
+  filter: drop-shadow(-1px 1px 2px rgba(0, 0, 0, 0.25));
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.import-item {
+  justify-content: space-between;
+  gap: 0 16px;
+}
+
+.cta-button {
+  color: #C94057;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background: var(--border-border-primary, #1D2935);}
+
+/* =====================
+   Texts
+===================== */
+
+.item-name{
+  color: var(--text-text-primary, #1D2935);
+
+  /* title/base */
+  font-family: var(--font-family-title, Sansita);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: var(--font-weight-regular, 400);
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.item-timestamp{
+  margin-top: 0px;
+  color: var(--text-text-primary, #1D2935);
+
+  /* body/caption */
+  font-family: var(--font-family-body, "DM Sans");
+  font-size: 12px;
+  font-style: normal;
+  font-weight: var(--font-weight-regular, 400);
+  line-height: normal;
+}
+
+.text-button {
+  align-self: center;
+  padding: 8px;
+  color: var(--text-text-primary, #1D2935);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+  
+  /* body/caption */
+  font-family: var(--font-family-body, "DM Sans");
+  font-size: 12px;
+  font-style: normal;
+  font-weight: var(--font-weight-regular, 400);
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+/* =====================
+   Hero Section
+===================== */
+.hero {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  display: flex;
+  width: 70%;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 480px;
+  background: url(../assets/Vector.svg) center / auto no-repeat;
+}
+
+.brand-name {
+  color: var(--text-text-brand, #C94057);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  font-family: var(--font-family-title, Sansita);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: var(--font-weight-medium, 400);
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+/* =====================
+   Interact Section
+===================== */
+.interact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.interact-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 100px;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 48px;
+  border: 1px solid rgba(29, 41, 53, 0.7);
+}
+
+.left-container,
+.right-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.left-container {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-input {
+  flex: 1;
+  width: 100%;
+  min-width: 100px;
+  min-height: 48px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-text-primary, #1D2935);
+  font-family: var(--font-family-body, "DM Sans");
+  font-size: 16px;
+  font-style: normal;
+  font-weight: var(--font-weight-regular, 400);
+  line-height: normal;
+  caret-color: #1D2935;
+}
+
+/* =====================
+   Utilities
+===================== */
+.sidebar-expanded {
+  width: 160px;
+}
+
+.hidden {
+  display: none !important;
+}

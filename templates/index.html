@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototype</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="../static/css/styles.css" />
+
+  <!-- Google Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- Google Font Sansita -->
+  <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
+
+  <!-- JavaScript with Flask's url_for -->
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <button class="icon-button" id="tabToggle" name="action" value="tab-open">
+        <span class="material-symbols-outlined">left_panel_open</span>
+      </button>
+    </div>
+
+    <!-- Main Window -->
+    <div class="main">
+      
+      <!-- Header -->
+      <div class="header">
+
+        <!-- History Button +  Dropdown Wrapper -->
+        <div class="dropdown-wrapper history-wrapper">
+          <button class="icon-button history-button" id="history-button" name="action" value="history">
+            <span class="material-symbols-outlined">history</span>
+          </button>
+          <div class="dropdown-menu history-menu hidden" id="history-menu">
+            <button class="menu-item">
+              <p class="item-name">Version 1</p>
+              <span class="material-symbols-outlined menu-icon">history</span>
+              <p class="item-timestamp">May 13, 2025 05:07 AM</p>
+            </button>
+            <div class="separator"></div>
+            <button class="menu-item">
+              <p class="item-name">Version 2</p>
+              <span class="material-symbols-outlined menu-icon">history</span>
+              <p class="item-timestamp">May 10, 2025 12:17 PM</p>
+            </button>
+            <div class="separator"></div>
+            <button class="menu-item text-button">View all previous versions</button>
+          </div>
+        </div>
+
+        <!-- Avatar/Profile Button -->
+        <button class="icon-button avatar-button" name="action" value="profile"></button>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="hero">
+        <div class="hero-image">
+          <p class="brand-name">Research AI</p>
+        </div>
+      </div>
+
+      <!-- Interaction Section -->
+      <div class="interact-container">
+        <div class="interact-tab">
+
+          <!-- Left Side: Import Options + Input -->
+          <div class="left-container">
+
+            <!-- Import Button + Dropdown Wrapper -->
+            <div class="dropdown-wrapper import-wrapper">
+              <button class="icon-button import-button" id="import-button" name="action" value="import">
+                <span class="material-symbols-outlined">add_circle</span>
+              </button>
+              <div class="dropdown-menu import-menu hidden" id="import-menu">
+                <button class="menu-item import-item">
+                  <p class="item-name">Text</p>
+                  <span class="material-symbols-outlined menu-icon">article</span>
+                </button>
+                <div class="separator"></div>
+                <button class="menu-item import-item">
+                  <p class="item-name">Image</p>
+                  <span class="material-symbols-outlined menu-icon">imagesmode</span>
+                </button>
+                <div class="separator"></div>
+                <button class="menu-item import-item">
+                  <p class="item-name">Other</p>
+                  <span class="material-symbols-outlined menu-icon">attach_file</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Text Input -->
+            <input class="user-input" type="text" placeholder="Let's research" />
+          </div>
+
+          <!-- Right Side: CTA Options + Send -->
+          <div class="right-container">
+
+            <!-- CTA Button + Dropdown Wrapper -->
+            <div class="dropdown-wrapper cta-wrapper">
+              <button class="icon-button cta-button" id="cta-button" name="action" value="cta">
+                <span class="material-symbols-outlined filled-icon">wand_stars</span>
+              </button>
+              <div class="dropdown-menu cta-menu hidden" id="cta-menu">
+                <button class="menu-item cta-item">
+                  <p class="item-name">Auto Summary</p>
+                  <span class="material-symbols-outlined menu-icon cta-button">wand_stars</span>
+                </button>
+                <div class="separator"></div>
+                <button class="menu-item cta-item">
+                  <p class="item-name">AI Tags</p>
+                  <span class="material-symbols-outlined menu-icon cta-button">wand_stars</span>
+                </button>
+                <div class="separator"></div>
+                <button class="menu-item cta-item">
+                  <p class="item-name">Transcript Summary</p>
+                  <span class="material-symbols-outlined menu-icon cta-button">wand_stars</span>
+                </button>
+                <div class="separator"></div>
+                <button class="menu-item cta-item">
+                  <p class="item-name">Document Research</p>
+                  <span class="material-symbols-outlined menu-icon cta-button">wand_stars</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Send Button -->
+            <button class="icon-button send-button" name="action" value="send">
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </div> <!-- End Right Container -->
+
+        </div> <!-- End Interact Tab -->
+      </div> <!-- End Interact Container -->
+    </div> <!-- End Main -->
+  </div> <!-- End Layout -->
+</body>
+</html>
