@@ -61,4 +61,58 @@ document.addEventListener('DOMContentLoaded', () => {
         ctaMenu.classList.add('hidden');
       }
     });
+
+    // Send input on Enter key (when input is focused)
+    const inputField = document.getElementById('userInput');
+    inputField?.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        sendInput();
+        if (el) el.remove();
+      }
+    });
 });
+
+function sendInput() {
+  const chatWindow = document.getElementById('chatWindow');
+  const inputField = document.getElementById('userInput');
+  const inputText = inputField.value;
+  const el = document.getElementById('brandIdentity');
+
+  fetch('/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ user_input: inputText })
+  })
+  .then(response => response.json())
+  .then(data => {
+    const gptResponse = data.gpt_response;
+
+    inputField.value = '';     // Clear the input field
+    if (el) el.remove();   // Cleanly remove the element from the DOM
+    if (!inputText) return;
+
+    // Create user chat box
+    const userBox = document.createElement('div');
+    userBox.className = 'chat-box user';
+    userBox.textContent = inputText;
+    chatWindow.appendChild(userBox);
+
+    // Simulate AI response after a short delay
+    setTimeout(() => {
+      const aiBox = document.createElement('div');
+      aiBox.className = 'chat-box ai';
+      aiBox.textContent = `AI: Response to "${gptResponse}"`;
+      chatWindow.appendChild(aiBox);
+
+      // Optional: Scroll to bottom
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }, 500);
+
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}

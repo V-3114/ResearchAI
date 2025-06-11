@@ -59,11 +59,10 @@
       </div>
 
       <!-- Hero Section -->
-      <div class="hero">
-        <div class="hero-image">
-          <p class="brand-name">Research AI</p>
+        <div class="chat-window" id="chatWindow">
+          <div class="hero-image" id="brandIdentity"><p class="brand-name">Research AI</p></div>
+          <!-- Messages will be appended here -->
         </div>
-      </div>
 
       <!-- Interaction Section -->
       <div class="interact-container">
@@ -96,7 +95,7 @@
             </div>
 
             <!-- Text Input -->
-            <input class="user-input" type="text" placeholder="Let's research" />
+            <input class="user-input" id="userInput" type="text" placeholder="Let's research" />
           </div>
 
           <!-- Right Side: CTA Options + Send -->
@@ -131,7 +130,7 @@
             </div>
 
             <!-- Send Button -->
-            <button class="icon-button send-button" name="action" value="send">
+            <button class="icon-button send-button" onclick="sendInput()" name="action" value="send">
               <span class="material-symbols-outlined">send</span>
             </button>
           </div> <!-- End Right Container -->

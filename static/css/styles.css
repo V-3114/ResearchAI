@@ -47,7 +47,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 26px;
+  padding: 8px 32px;
   gap: 16px;
 }
 
@@ -80,8 +80,8 @@ body {
 }
 
 .avatar-button {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: url(../assets/profile.svg) lightgray 50% / cover no-repeat;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -106,8 +106,7 @@ body {
   padding: 8px;
   gap: 4px;
   border-radius: 8px;
-  border: 1px solid var(--border-border-primary, #1D2935);
-  background: var(--color-base-88-o-40, rgba(241, 226, 218, 0.16));
+  background: var(--color-base-88-o-40, rgba(29, 41, 53, 0.10));
   backdrop-filter: blur(2px);
   white-space: nowrap; /* Prevent items from wrapping, helps with dynamic width */
   width: max-content;  /* Let dropdown grow to fit content */
@@ -231,16 +230,42 @@ body {
 }
 
 /* =====================
-   Hero Section
+   Chat Window
 ===================== */
-.hero {
+
+.chat-window {
+  position: relative; /* Needed for absolute positioning inside */
   display: flex;
   flex: 1;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 16px 240px;
+  gap: 32px;
+  overflow-x: auto;
+}
+
+.chat-box.user {
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 16px;
+  background: var(--surface-surface-secondary, rgba(29, 41, 53, 0.10));
+}
+
+.chat-box.ai {
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
 }
 
 .hero-image {
+  position: absolute; /* Take out of normal flow */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   width: 70%;
   height: 90%;
@@ -268,7 +293,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
+  padding: 8px;
 }
 
 .interact-tab {
@@ -279,8 +304,11 @@ body {
   height: 100px;
   width: 100%;
   max-width: 800px;
-  border-radius: 48px;
-  border: 1px solid rgba(29, 41, 53, 0.7);
+  border-radius: 32px;
+  border-bottom: 0.5px solid var(--border-border-primary, #1D2935);
+  background: var(--surface-surface-primary, #F8F0EC);
+  box-shadow: 0px 0px 8px 0px rgba(29, 41, 53, 0.25);
+  backdrop-filter: blur(2px);
 }
 
 .left-container,
